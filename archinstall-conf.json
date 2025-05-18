@@ -1,0 +1,26 @@
+{
+  "additional-repositories":  ["multilib"] ,
+  "archinstall-language": "Polish",
+  "audio_config": "pipewire",
+  "bootloader": "grub",
+  "debug": false,
+  "hostname": "janusz-arch",
+  "kernels": [
+    "linux"
+  ],
+  "locale_config": {
+    "kb_layout": "pl",
+    "sys_enc": "UTF-8",
+    "sys_lang": "pl_PL.utf8"
+  },
+  "parallel downloads": 0,
+  "script": "guided",
+  "silent": false,
+  "swap": true,
+  "timezone": "UTC",
+  "custom_commands": [
+  "curl -L -o /mnt/archinstall/root/moj_skrypt_postinstall.sh https://raw.githubusercontent.com/janusz-bit/janusz-arch/main/post-build.sh",
+  "chmod +x /mnt/archinstall/root/moj_skrypt_postinstall.sh",
+  "arch-chroot /mnt/archinstall /root/moj_skrypt_postinstall.sh"
+]
+}
