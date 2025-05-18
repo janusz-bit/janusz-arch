@@ -196,13 +196,16 @@ sudo locale-gen
 echo "INFO: Konfiguracja locale zakończona."
 echo "--------------------------------------------------"
 
+echo "--------------------------------------------------"
+echo "Dodawanie użytkownika do grupy gamemode..."
+sudo gpasswd -a $USER gamemode
+echo "INFO: Użytkownik $USER został dodany do grupy gamemode."
 
 echo ""
 echo "WSKAZÓWKA: Aby uruchomić grę na Steam z GameMode, kliknij prawym przyciskiem myszy na grę w Bibliotece, wybierz Właściwości..., a następnie w polu Opcje uruchamiania wpisz:"
 echo "gamemoderun %command%"
 echo ""
-echo "Aby dodać użytkownika do grupy (np. libvirt, docker, video), użyj polecenia: sudo gpasswd -a TWOJA_NAZWA_UŻYTKOWNIKA nazwa_grupy"
-echo "Przykład: sudo gpasswd -a $USER libvirt"
+
 
 
 read -p "Czy chcesz zrestartować system teraz? (t/N): " REBOOT_NOW
