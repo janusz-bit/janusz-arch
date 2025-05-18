@@ -105,6 +105,7 @@ PACKAGES_PACMAN=(
     lib32-nvidia-utils # Upewnij się, że używasz sterowników NVIDIA
     gamemode
     lib32-gamemode
+    steam
 )
 
 for pkg in "${PACKAGES_PACMAN[@]}"; do
