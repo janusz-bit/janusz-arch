@@ -126,6 +126,8 @@ PACKAGES_YAY=(
     brave-bin
     ttf-ms-win11-auto
     discord_arch_electron
+    vscodium-bin
+    vscodium-bin-marketplace
 )
 
 if command -v yay &> /dev/null; then
