@@ -76,13 +76,13 @@ echo "--------------------------------------------------"
 
 
 pacman -Suy
-pacman -S asusctl power-profiles-daemon
+pacman -S asusctl power-profiles-daemon --noconfirm
 systemctl enable --now power-profiles-daemon.service
-pacman -S supergfxctl switcheroo-control
+pacman -S supergfxctl switcheroo-control --noconfirm
 systemctl enable --now supergfxd
 systemctl enable --now switcheroo-control
-pacman -S rog-control-center
-pacman -Sy linux-g14 linux-g14-headers
+pacman -S rog-control-center --noconfirm
+pacman -Sy linux-g14 linux-g14-headers --noconfirm
 grub-mkconfig -o /boot/grub/grub.cfg
 
 
@@ -109,23 +109,33 @@ done
 
 
 PACKAGES_YAY=(
-    "brave-bin"
-    "ttf-ms-win11-auto"
-    "discord_arch_electron"
+    brave-bin
+    ttf-ms-win11-auto
+    discord_arch_electron
 )
 
-# Aktualizacja systemu i instalacja pakietów za pomocą yay
-echo ""
-echo ">>> Aktualizowanie systemu i instalowanie wybranych pakietów za pomocą yay..."
-# `--answeredit=none --answerdiff=none` są przydatne do pomijania pytań o edycję PKGBUILDów przy aktualizacjach
-# `--removemake` usuwa zależności potrzebne tylko do budowy po zakończeniu
-# `--sudoloop` utrzymuje pętlę sudo, aby nie trzeba było wpisywać hasła wielokrotnie (używaj ostrożnie)
-if [ ${#PACKAGES_YAY[@]} -gt 0 ]; then
-    yay -Syu --needed --noconfirm --answeredit=none --answerdiff=none --removemake "${PACKAGES_TO_INSTALL[@]}"
-else
-    echo "Brak zdefiniowanych pakietów do instalacji za pomocą yay. Aktualizuję tylko system."
-    yay -Syu --needed --noconfirm --answeredit=none --answerdiff=none
-fi
+# # Aktualizacja systemu i instalacja pakietów za pomocą yay
+# echo ""
+# echo ">>> Aktualizowanie systemu i instalowanie wybranych pakietów za pomocą yay..."
+# # `--answeredit=none --answerdiff=none` są przydatne do pomijania pytań o edycję PKGBUILDów przy aktualizacjach
+# # `--removemake` usuwa zależności potrzebne tylko do budowy po zakończeniu
+# # `--sudoloop` utrzymuje pętlę sudo, aby nie trzeba było wpisywać hasła wielokrotnie (używaj ostrożnie)
+# if [ ${#PACKAGES_YAY[@]} -gt 0 ]; then
+#     yay -Syu --needed --noconfirm --answeredit=none --answerdiff=none --removemake "${PACKAGES_TO_INSTALL[@]}"
+# else
+#     echo "Brak zdefiniowanych pakietów do instalacji za pomocą yay. Aktualizuję tylko system."
+#     yay -Syu --needed --noconfirm --answeredit=none --answerdiff=none
+# fi
+
+
+for pkg in "${PACKAGES_YAY[@]}"; do
+    if ! yay -Q "$pkg" &>/dev/null; then
+        echo "Instalowanie $pkg..."
+        sudo yay -S --noconfirm --needed --answeredit=none --answerdiff=none --removemake "$pkg"
+    else
+        echo "$pkg jest już zainstalowany."
+    fi
+done
 
 
 
