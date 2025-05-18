@@ -131,7 +131,7 @@ PACKAGES_YAY=(
 for pkg in "${PACKAGES_YAY[@]}"; do
     if ! yay -Q "$pkg" &>/dev/null; then
         echo "Instalowanie $pkg..."
-        sudo yay -S --noconfirm --needed --answeredit=none --answerdiff=none --removemake "$pkg"
+        yay -S --noconfirm --needed --answeredit=none --answerdiff=none --removemake "$pkg"
     else
         echo "$pkg jest już zainstalowany."
     fi
