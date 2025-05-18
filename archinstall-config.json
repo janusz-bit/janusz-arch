@@ -1,0 +1,80 @@
+{
+    "archinstall-language": "English",
+    "audio_config": {
+        "audio": "pipewire"
+    },
+    "bootloader": "Grub",
+    "hostname": "janusz-arch",
+    "kernels": [
+        "linux"
+    ],
+    "locale_config": {
+        "kb_layout": "pl",
+        "sys_enc": "UTF-8",
+        "sys_lang": "en_US.UTF-8"
+    },
+    "mirror_config": {
+        "custom_repositories": [],
+        "custom_servers": [],
+        "mirror_regions": {
+            "Denmark": [
+                "http://mirrors.dotsrc.org/archlinux/$repo/os/$arch",
+                "https://mirrors.dotsrc.org/archlinux/$repo/os/$arch",
+                "http://mirror.group.one/archlinux/$repo/os/$arch",
+                "https://mirror.group.one/archlinux/$repo/os/$arch"
+            ],
+            "Poland": [
+                "http://arch.midov.pl/arch/$repo/os/$arch",
+                "https://arch.midov.pl/arch/$repo/os/$arch",
+                "http://ftp.icm.edu.pl/pub/Linux/dist/archlinux/$repo/os/$arch",
+                "https://ftp.icm.edu.pl/pub/Linux/dist/archlinux/$repo/os/$arch",
+                "http://mirror.juniorjpdj.pl/archlinux/$repo/os/$arch",
+                "https://mirror.juniorjpdj.pl/archlinux/$repo/os/$arch",
+                "http://ftp.psnc.pl/linux/archlinux/$repo/os/$arch",
+                "https://ftp.psnc.pl/linux/archlinux/$repo/os/$arch",
+                "http://arch.sakamoto.pl/$repo/os/$arch",
+                "https://arch.sakamoto.pl/$repo/os/$arch",
+                "https://mirror.przekichane.pl/archlinux/$repo/os/$arch"
+            ]
+        },
+        "optional_repositories": [
+            "multilib"
+        ]
+    },
+    "network_config": {
+        "type": "nm"
+    },
+    "ntp": true,
+    "packages": [],
+    "parallel_downloads": 0,
+    "profile_config": {
+        "gfx_driver": "Nvidia (open kernel module for newer GPUs, Turing+)",
+        "greeter": "sddm",
+        "profile": {
+            "custom_settings": {
+                "KDE Plasma": {}
+            },
+            "details": [
+                "KDE Plasma"
+            ],
+            "main": "Desktop"
+        }
+    },
+    "services": [],
+    "swap": true,
+    "timezone": "UTC",
+    "version": null,
+    "custom_commands": [
+  "curl -L -o /mnt/archinstall/root/moj_skrypt_postinstall.sh https://raw.githubusercontent.com/janusz-bit/janusz-arch/main/post-build.sh",
+  "chmod +x /mnt/archinstall/root/moj_skrypt_postinstall.sh",
+  "arch-chroot /mnt/archinstall /root/moj_skrypt_postinstall.sh"
+]
+}
+
+
+
+
+
+
+
+  
