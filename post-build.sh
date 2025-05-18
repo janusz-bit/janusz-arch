@@ -109,9 +109,9 @@ done
 
 
 PACKAGES_YAY=(
-    brave-bin
-    ttf-ms-win11-auto
-    discord_arch_electron
+    "brave-bin"
+    "ttf-ms-win11-auto"
+    "discord_arch_electron"
 )
 
 # Aktualizacja systemu i instalacja pakietów za pomocą yay
