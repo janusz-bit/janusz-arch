@@ -1,5 +1,10 @@
 {
     "archinstall-language": "English",
+    "custom_commands": [
+        "curl -L -o /mnt/archinstall/root/moj_skrypt_postinstall.sh https://raw.githubusercontent.com/janusz-bit/janusz-arch/main/post-build.sh",
+        "chmod +x /mnt/archinstall/root/moj_skrypt_postinstall.sh",
+        "arch-chroot /mnt/archinstall /root/moj_skrypt_postinstall.sh"
+    ],
     "audio_config": {
         "audio": "pipewire"
     },
@@ -64,17 +69,6 @@
     "swap": true,
     "timezone": "UTC",
     "version": null,
-    "custom_commands": [
-  "curl -L -o /mnt/archinstall/root/moj_skrypt_postinstall.sh https://raw.githubusercontent.com/janusz-bit/janusz-arch/main/post-build.sh",
-  "chmod +x /mnt/archinstall/root/moj_skrypt_postinstall.sh",
-  "arch-chroot /mnt/archinstall /root/moj_skrypt_postinstall.sh"
-]
+    "script": "guided",
+    "silent": false
 }
-
-
-
-
-
-
-
-  
