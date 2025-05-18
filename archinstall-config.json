@@ -4,11 +4,9 @@
         "audio": "pipewire"
     },
     "bootloader": "Grub",
-    "custom_commands": [
-        "curl -L -o /mnt/archinstall/root/moj_skrypt_postinstall.sh https://raw.githubusercontent.com/janusz-bit/janusz-arch/main/post-build.sh",
+    "custom_commands": ["curl -L -o /mnt/archinstall/root/moj_skrypt_postinstall.sh https://raw.githubusercontent.com/janusz-bit/janusz-arch/main/post-build.sh",
         "chmod +x /mnt/archinstall/root/moj_skrypt_postinstall.sh",
-        "arch-chroot /mnt/archinstall /root/moj_skrypt_postinstall.sh"
-    ],
+        "arch-chroot /mnt/archinstall /root/moj_skrypt_postinstall.sh"],
     "hostname": "janusz-arch",
     "kernels": [
         "linux"
