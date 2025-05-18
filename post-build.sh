@@ -127,15 +127,13 @@ PACKAGES_YAY=(
 #     yay -Syu --needed --noconfirm --answeredit=none --answerdiff=none
 # fi
 
-
-for pkg in "${PACKAGES_YAY[@]}"; do
-    if ! yay -Q "$pkg" &>/dev/null; then
-        echo "Instalowanie $pkg..."
-        yay -S --noconfirm --needed --answeredit=none --answerdiff=none --removemake "$pkg"
-    else
-        echo "$pkg jest już zainstalowany."
-    fi
-done
+# echo "yay -S --noconfirm --needed --answeredit=none --answerdiff=none --removemake "
+# for pkg in "${PACKAGES_YAY[@]}"; do
+#     if ! yay -Q "$pkg" &>/dev/null; then
+#         # echo "Instalowanie $pkg..."
+#         echo "$pkg"
+#     fi
+# done
 
 
 
@@ -185,6 +183,16 @@ echo "--------------------------------------------------"
 
 echo ""
 echo "To make Steam start a game with GameMode, right click the game in the Library, select Properties..., then in the Launch Options text box enter:\n\ngamemoderun %command%\nUSE: gpasswd -a user group"
+
+echo ""
+echo "Uruchom te komendy:"
+echo "yay -S --noconfirm --needed --answeredit=none --answerdiff=none --removemake "
+for pkg in "${PACKAGES_YAY[@]}"; do
+    if ! yay -Q "$pkg" &>/dev/null; then
+        # echo "Instalowanie $pkg..."
+        echo "$pkg"
+    fi
+done
 
 
 read -p "Czy chcesz zrestartować system teraz? (t/N): " REBOOT_NOW
