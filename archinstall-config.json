@@ -14,7 +14,7 @@
     "locale_config": {
         "kb_layout": "pl",
         "sys_enc": "UTF-8",
-        "sys_lang": "en_US.UTF-8"
+        "sys_lang": "pl_PL.UTF-8"
     },
     "mirror_config": {
         "custom_repositories": [],
